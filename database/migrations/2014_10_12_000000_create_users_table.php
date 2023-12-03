@@ -15,10 +15,16 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('username')->nullable();
             $table->string('password');
+            $table->string('role')->index();
+            $table->string('login_type')->default('guest');
+            $table->string('status')->default('active');
+            $table->string('last_login')->nullable();
+            $table->string('last_location')->nullable();
+            $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

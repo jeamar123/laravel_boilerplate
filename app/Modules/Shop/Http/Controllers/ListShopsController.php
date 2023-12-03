@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Modules\Log\Http\Controllers;
+namespace App\Modules\Shop\Http\Controllers;
 
-use App\Modules\Log\Models\Log;
+use App\Modules\Shop\Models\Shop;
 use Illuminate\Http\JsonResponse;
 
-class ListLogsController
+class ListShopsController
 {
     public function __invoke(): JsonResponse
     {
         return response()->json([
-            'logs' => Log::get()
+            'shops' => Shop::get()
         ], 200);
     }
 }   

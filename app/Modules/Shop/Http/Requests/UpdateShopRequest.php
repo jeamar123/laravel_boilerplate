@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Modules\User\Http\Requests;
+namespace App\Modules\Shop\Http\Requests;
 
-use App\Modules\User\Models\User;
+use App\Modules\Shop\Models\Shop;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateUserRequest extends FormRequest
+class UpdateShopRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -20,8 +20,7 @@ class UpdateUserRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'image' => ['nullable'],
-            'role' => ['somtimes'],
-            'email' => ['required', 'email', Rule::unique(User::class, 'email')->ignore($this->user)],
+            'email' => ['required', 'email', Rule::unique(Shop::class, 'email')->ignore($this->shop)],
             'login_type' => ['nullable'],
             'status' => ['nullable'],
         ];
